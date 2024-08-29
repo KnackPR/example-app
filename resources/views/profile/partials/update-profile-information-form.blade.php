@@ -45,8 +45,15 @@
                     @endif
                 </div>
             @endif
+        </div>x`
+        <div>
+            <h4 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {{ __('Bio Information') }}
+            </h4>
+            <p class="mt-2 text-white">
+                {{$user->bio->bio ?? 'No bio available'}}
+            </p>
         </div>
-
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
@@ -59,16 +66,6 @@
                     class="text-sm text-gray-600 dark:text-gray-400"
                 >{{ __('Saved.') }}</p>
             @endif
-        </div>
-    </form>
-    <div>
-        <h4 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Bio Information') }}
-        </h4>
-    </div>
-            <p class="mt-2 text-white">
-                {{$user->bio->bio ?? 'No bio available'}}
-            </p>
             <a href="{{ route('profile.show-bio') }}" class="inline-flex items-center
             px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold
             text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-
@@ -76,5 +73,6 @@
             disabled:opacity-25 transition ease-in-out duration-150">
             {{ __('Click to Manage Bio') }}
             </a>
-        
+        </div>
+    </form>    
 </section>
