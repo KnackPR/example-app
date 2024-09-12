@@ -9,7 +9,8 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('profile.photo.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.photo.update') }}" enctype="multipart/form-data"
+        class="mt-6 space-y-6">
         @csrf
         <div>
             <x-input-label for="profile_photo" :value="__('Profile Photo')" />
@@ -21,13 +22,8 @@
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-photo-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Saved.') }}</p>
+                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>
@@ -36,7 +32,8 @@
         <x-input-label for="current_photo" :value="__('Current Profile Photo')" />
         <div class="mt-1">
             @if(Auth::user()->profile_photo)
-                <img src="{{ asset('storage/' . Auth::user()->profile_photo) }}" alt="Profile Photo" class="w-32 h-32 object-cover rounded-full">
+                <img src="{{ asset('storage/' . Auth::user()->profile_photo) }}" alt="Profile Photo"
+                    class=" flex w-32 h-32 object-cover rounded-full">
             @else
                 <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('No profile photo uploaded.') }}</p>
             @endif
